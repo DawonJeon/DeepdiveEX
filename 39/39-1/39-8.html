@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep dive 39-8</title>
+</head>
+<body>
+    <ul>
+        <li id="apple">Apple</li>
+        <li id="banana">Banana</li>
+        <li id="orange">Orange</li>
+    </ul>
+    <script>
+        const $elems = document.getElementsByTagName('li');
+        [...$elems].forEach(elem => {elem.style.color = 'red'; });
+    </script> 
+    <!-- My problems: forEach를 foreach로 써서 안먹혔습니다..열받....
+    왜 변수선언은 $elems로 하고 넣을때는 elem으로 하지? 배열로 할때는
+    $elems, 각각을 나타낼때는 elem 인건가? -->
+    
+</body>
+</html>

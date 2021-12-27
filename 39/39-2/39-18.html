@@ -1,0 +1,38 @@
+<!--HTMLCollection
+:getElementById, getElementByClassName메서드가 반환하는 객체
+:노드 객체 상태변화를 실시간으로 반영하는 DOM컬렉션 객체
+:live 객체(살아있는 객체)-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deep dive 29-18 Dom</title>
+    <style>
+        .red {color:red;}
+        .blue {color:blue;}
+    </style>
+</head>
+<body>
+    <ul id="fruits">
+        <li class="red">Apple</li>
+        <li class="red">Banana</li>
+        <li class="red">Orange</li>
+    </ul>
+    <script>
+        const $elems = document.getElementsByClassName('red');
+        console.log($elems);
+
+        for (let i=0; i < $elems.length; i++) {
+            $elems[i].className = 'blue';
+        }
+        console.log($elems);
+        /*실시간으로 노드객체가 삭제되기 때문에 두번째 Banana는 변하지 않음
+        첫번째 반복에서 첫번쨰 li요소의 class값이 red에서 blue로 변경되며
+        red값이 실시간으로 제거된다. 살아있는 DOM 컬렉션 객체이다
+        두번째 반복에서 첫번째 요소가 제거되면서 세번째 li요소가 $elems[1]이 된다
+        세번째 반복에서 더이상 $elems[2]가 남아 있지 않으므로 false로 평가되며 반복이 종료됨 */
+    </script>
+</body>
+</html>
